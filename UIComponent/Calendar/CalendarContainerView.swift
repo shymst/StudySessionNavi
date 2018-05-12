@@ -8,6 +8,7 @@
 import UIKit
 
 final class CalendarContainerView: UIView {
+
     private let weekHeaderView: UIView = {
         let view = UIView()
         view.backgroundColor = .clear
@@ -24,10 +25,16 @@ final class CalendarContainerView: UIView {
         collectionView.dataSource = strongSelf
         collectionView.delegate = strongSelf
         return collectionView
-        }()
+    }()
 
     private var cellSizeWidth: CGFloat = 0
     private var cellSizeHeight: CGFloat = 0
+
+    private var viewModels = [CalendarCollectionViewCellViewModel]() {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -67,6 +74,21 @@ final class CalendarContainerView: UIView {
                 view.bottomAnchor.constraint(equalTo: bottomAnchor)
             ]
         }
+
+        // TODO:
+        let weeks = Date.ex.getWeeks(year: 2018, month: 5)
+        for week in weeks {
+            for (index, day) in week.enumerated() {
+                var type: CalendarCollectionViewCellViewModel.DayType
+                switch index {
+                case 0: type = .holiday
+                case 6: type = .saturday
+                default: type = .weekday
+                }
+                let viewModel = CalendarCollectionViewCellViewModel(day: day, count: 0, type: type, isSelected: false)
+                viewModels.append(viewModel)
+            }
+        }
     }
 
     override func draw(_ rect: CGRect) {
@@ -94,10 +116,13 @@ final class CalendarContainerView: UIView {
 
             switch index {
             case 0:
+                dayView.backgroundColor = UIColor.ex.calendarHeaderRed
                 dayLabel.textColor = .red
             case 6:
+                dayView.backgroundColor = UIColor.ex.calendarHeaderBlue
                 dayLabel.textColor = .blue
             default:
+                dayView.backgroundColor = UIColor.ex.calendarHeaderGray
                 dayLabel.textColor = .black
             }
 
@@ -130,11 +155,12 @@ extension CalendarContainerView: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 42
+        return viewModels.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CalendarCell", for: indexPath) as? CalendarCollectionViewCell else { fatalError() }
+        cell.configureWith(viewModel: viewModels[indexPath.row])
         return cell
     }
 }
