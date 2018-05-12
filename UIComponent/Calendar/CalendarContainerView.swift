@@ -62,7 +62,6 @@ final class CalendarContainerView: UIView {
             }
         }
         viewModels = newViewModels
-        print(year, month, viewModels)
         collectionView.reloadData()
     }
 

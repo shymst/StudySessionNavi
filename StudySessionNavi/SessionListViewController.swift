@@ -12,13 +12,12 @@ final class SessionListViewController: UIViewController {
 
     private let calendarView = CalendarView()
 
-    var year = 2018
-    var month = 5
+    var targetDate = Date()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        calendarView.configureWith(year: year, month: month)
+        calendarView.configureWith(year: targetDate.year, month: targetDate.month)
     }
 
     private func setupUI() {
@@ -39,14 +38,14 @@ final class SessionListViewController: UIViewController {
 // MARK: - CalendarHeaderViewDelegate
 extension SessionListViewController: CalendarViewDelegate {
     func tapPrevButton() {
-        // TODO: year
-        month -= 1
-        calendarView.configureWith(year: year, month: month)
+        targetDate.month -= 1
+        calendarView.configureWith(year: targetDate.year, month: targetDate.month)
+        print(targetDate)
     }
 
     func tapNextButton() {
-        // TODO: year
-        month += 1
-        calendarView.configureWith(year: year, month: month)
+        targetDate.month += 1
+        calendarView.configureWith(year: targetDate.year, month: targetDate.month)
+        print(targetDate)
     }
 }

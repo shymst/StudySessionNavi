@@ -79,12 +79,10 @@ final class CalendarHeaderView: UIView {
     }
 
     @objc private func tapPrevButton() {
-        print(#function)
         delegate.tapPrevButton()
     }
 
     @objc private func tapNextButton() {
-        print(#function)
         delegate.tapNextButton()
     }
 }
