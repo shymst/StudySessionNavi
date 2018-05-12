@@ -47,6 +47,7 @@ final class CalendarContainerView: UIView {
     }
 
     internal func configureWith(year: Int, month: Int) {
+        print(year, month)
         let weeks = Date.ex.getWeeks(year: year, month: month)
         for week in weeks {
             for (index, day) in week.enumerated() {
@@ -167,4 +168,8 @@ extension CalendarContainerView: UICollectionViewDataSource {
 }
 
 // MARK: - UICollectionViewDelegate
-extension CalendarContainerView: UICollectionViewDelegate {}
+extension CalendarContainerView: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(indexPath)
+    }
+}

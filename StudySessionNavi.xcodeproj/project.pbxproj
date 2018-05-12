@@ -27,6 +27,7 @@
 		937D670B20A5F7C60093B177 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937D670820A5F7A10093B177 /* Extension.swift */; };
 		93867A0E20A710D2007979E5 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93867A0D20A710D2007979E5 /* Date+.swift */; };
 		93867A1220A73492007979E5 /* CalendarCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93867A1120A73492007979E5 /* CalendarCollectionViewCellViewModel.swift */; };
+		93867A1420A739A4007979E5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93867A1320A739A4007979E5 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +102,7 @@
 		937D670820A5F7A10093B177 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		93867A0D20A710D2007979E5 /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
 		93867A1120A73492007979E5 /* CalendarCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
+		93867A1320A739A4007979E5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +203,7 @@
 				933709BF20A6F6280097F80A /* Calendar */,
 				937D66E520A5F1FB0093B177 /* UIComponent.h */,
 				937D66E620A5F1FB0093B177 /* Info.plist */,
+				93867A1320A739A4007979E5 /* Images.xcassets */,
 			);
 			path = UIComponent;
 			sourceTree = "<group>";
@@ -381,6 +384,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93867A1420A739A4007979E5 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
