@@ -47,7 +47,7 @@ final class CalendarContainerView: UIView {
     }
 
     internal func configureWith(year: Int, month: Int) {
-        print(year, month)
+        var newViewModels = [CalendarCollectionViewCellViewModel]()
         let weeks = Date.ex.getWeeks(year: year, month: month)
         for week in weeks {
             for (index, day) in week.enumerated() {
@@ -58,9 +58,12 @@ final class CalendarContainerView: UIView {
                 default: type = .weekday
                 }
                 let viewModel = CalendarCollectionViewCellViewModel(day: day, count: 0, type: type, isSelected: false)
-                viewModels.append(viewModel)
+                newViewModels.append(viewModel)
             }
         }
+        viewModels = newViewModels
+        print(year, month, viewModels)
+        collectionView.reloadData()
     }
 
     private func setCellSize() {
