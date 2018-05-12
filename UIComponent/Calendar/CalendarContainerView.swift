@@ -47,6 +47,8 @@ final class CalendarContainerView: UIView {
 
     private func setupUI() {
         backgroundColor = UIColor.ex.borderLightGray
+        layer.borderColor = UIColor.ex.borderLightGray.cgColor
+        layer.borderWidth = 1
 
         addSubview(weekHeaderView) { (view) -> ([NSLayoutConstraint]) in
             [
