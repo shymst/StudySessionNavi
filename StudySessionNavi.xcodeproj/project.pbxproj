@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		933709BE20A6EDD30097F80A /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933709BD20A6EDD30097F80A /* UIColor+.swift */; };
+		933709C120A6F63F0097F80A /* CalendarHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933709C020A6F63F0097F80A /* CalendarHeaderView.swift */; };
+		933709C320A6F6650097F80A /* CalendarContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933709C220A6F6650097F80A /* CalendarContainerView.swift */; };
+		933709C520A6F6DD0097F80A /* CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933709C420A6F6DD0097F80A /* CalendarCollectionViewCell.swift */; };
 		937D66BD20A5E7E90093B177 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937D66BC20A5E7E90093B177 /* AppDelegate.swift */; };
 		937D66BF20A5E7E90093B177 /* SessionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937D66BE20A5E7E90093B177 /* SessionListViewController.swift */; };
 		937D66C420A5E7EA0093B177 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 937D66C320A5E7EA0093B177 /* Assets.xcassets */; };
@@ -69,6 +73,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		933709BD20A6EDD30097F80A /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		933709C020A6F63F0097F80A /* CalendarHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHeaderView.swift; sourceTree = "<group>"; };
+		933709C220A6F6650097F80A /* CalendarContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarContainerView.swift; sourceTree = "<group>"; };
+		933709C420A6F6DD0097F80A /* CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
 		937D66B920A5E7E90093B177 /* StudySessionNavi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudySessionNavi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		937D66BC20A5E7E90093B177 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		937D66BE20A5E7E90093B177 /* SessionListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionListViewController.swift; sourceTree = "<group>"; };
@@ -125,6 +133,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		933709BF20A6F6280097F80A /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				937D670220A5F2740093B177 /* CalendarView.swift */,
+				933709C020A6F63F0097F80A /* CalendarHeaderView.swift */,
+				933709C220A6F6650097F80A /* CalendarContainerView.swift */,
+				933709C420A6F6DD0097F80A /* CalendarCollectionViewCell.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
 		937D66B020A5E7E90093B177 = {
 			isa = PBXGroup;
 			children = (
@@ -174,7 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				937D670720A5F7550093B177 /* Extensions */,
-				937D670220A5F2740093B177 /* CalendarView.swift */,
+				933709BF20A6F6280097F80A /* Calendar */,
 				937D66E520A5F1FB0093B177 /* UIComponent.h */,
 				937D66E620A5F1FB0093B177 /* Info.plist */,
 			);
@@ -193,8 +212,9 @@
 		937D670720A5F7550093B177 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				937D670420A5F7450093B177 /* UIView+.swift */,
 				937D670820A5F7A10093B177 /* Extension.swift */,
+				937D670420A5F7450093B177 /* UIView+.swift */,
+				933709BD20A6EDD30097F80A /* UIColor+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -390,8 +410,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				933709C320A6F6650097F80A /* CalendarContainerView.swift in Sources */,
+				933709C520A6F6DD0097F80A /* CalendarCollectionViewCell.swift in Sources */,
 				937D670B20A5F7C60093B177 /* Extension.swift in Sources */,
+				933709BE20A6EDD30097F80A /* UIColor+.swift in Sources */,
 				937D670A20A5F7C20093B177 /* UIView+.swift in Sources */,
+				933709C120A6F63F0097F80A /* CalendarHeaderView.swift in Sources */,
 				937D670320A5F2740093B177 /* CalendarView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
