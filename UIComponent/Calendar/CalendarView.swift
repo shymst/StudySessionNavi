@@ -41,4 +41,9 @@ final public class CalendarView: UIView {
             ]
         }
     }
+
+    public func configureWith(year: Int, month: Int) {
+        headerView.configureWith(month: month)
+        containerView.configureWith(year: year, month: month)
+    }
 }

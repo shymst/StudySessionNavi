@@ -28,14 +28,15 @@ final class CalendarHeaderView: UIView {
     }
 
     private func setupUI() {
-        // TODO:
-        monthLabel.text = "5月"
-
         addSubview(monthLabel) { (label) -> ([NSLayoutConstraint]) in
             [
                 label.centerXAnchor.constraint(equalTo: centerXAnchor),
                 label.centerYAnchor.constraint(equalTo: centerYAnchor)
             ]
         }
+    }
+
+    internal func configureWith(month: Int) {
+        monthLabel.text = "\(month) 月"
     }
 }

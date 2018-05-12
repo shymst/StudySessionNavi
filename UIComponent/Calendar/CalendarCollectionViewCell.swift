@@ -7,17 +7,6 @@
 
 import UIKit
 
-struct CalendarCollectionViewCellViewModel {
-    let day: Int
-    let count: Int
-    let type: DayType
-    var isSelected: Bool = false
-
-    enum DayType {
-        case weekday, saturday, sunday, holiday
-    }
-}
-
 final class CalendarCollectionViewCell: UICollectionViewCell {
 
     private lazy var dayLabel: UILabel = { [weak self] in

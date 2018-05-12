@@ -14,7 +14,11 @@ final class SessionListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
+        calendarView.configureWith(year: 2018, month: 5)
+    }
 
+    private func setupUI() {
         view.backgroundColor = .white
         view.addSubview(calendarView) { (view) -> ([NSLayoutConstraint]) in
             [

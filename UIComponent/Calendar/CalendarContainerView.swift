@@ -46,6 +46,22 @@ final class CalendarContainerView: UIView {
         setupUI()
     }
 
+    internal func configureWith(year: Int, month: Int) {
+        let weeks = Date.ex.getWeeks(year: year, month: month)
+        for week in weeks {
+            for (index, day) in week.enumerated() {
+                var type: CalendarCollectionViewCellViewModel.DayType
+                switch index {
+                case 0: type = .holiday
+                case 6: type = .saturday
+                default: type = .weekday
+                }
+                let viewModel = CalendarCollectionViewCellViewModel(day: day, count: 0, type: type, isSelected: false)
+                viewModels.append(viewModel)
+            }
+        }
+    }
+
     private func setCellSize() {
         cellSizeWidth = (collectionView.bounds.width - 6) / 7
         cellSizeHeight = (collectionView.bounds.height - 5) / 6
@@ -73,21 +89,6 @@ final class CalendarContainerView: UIView {
                 view.trailingAnchor.constraint(equalTo: trailingAnchor),
                 view.bottomAnchor.constraint(equalTo: bottomAnchor)
             ]
-        }
-
-        // TODO:
-        let weeks = Date.ex.getWeeks(year: 2018, month: 5)
-        for week in weeks {
-            for (index, day) in week.enumerated() {
-                var type: CalendarCollectionViewCellViewModel.DayType
-                switch index {
-                case 0: type = .holiday
-                case 6: type = .saturday
-                default: type = .weekday
-                }
-                let viewModel = CalendarCollectionViewCellViewModel(day: day, count: 0, type: type, isSelected: false)
-                viewModels.append(viewModel)
-            }
         }
     }
 
