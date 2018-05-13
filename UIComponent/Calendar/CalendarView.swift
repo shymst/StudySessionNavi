@@ -14,7 +14,13 @@ public protocol CalendarViewDelegate: class {
 
 final public class CalendarView: UIView {
 
-    private let headerView = CalendarHeaderView()
+    private lazy var headerView: CalendarHeaderView = { [weak self] in
+        guard let strongSelf = self else { fatalError() }
+        let headerView = CalendarHeaderView()
+        headerView.delegate = strongSelf
+        return headerView
+    }()
+
     private let containerView = CalendarContainerView()
 
     public weak var delegate: CalendarViewDelegate!
@@ -30,7 +36,6 @@ final public class CalendarView: UIView {
     }
 
     private func setup() {
-        headerView.delegate = self
         addSubview(headerView) { (view) -> ([NSLayoutConstraint]) in
             [
                 view.topAnchor.constraint(equalTo: topAnchor),

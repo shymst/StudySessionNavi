@@ -10,9 +10,14 @@ import UIComponent
 
 final class SessionListViewController: UIViewController {
 
-    private let calendarView = CalendarView()
+    private lazy var calendarView: CalendarView = { [weak self] in
+        guard let strongSelf = self else { fatalError() }
+        let view = CalendarView()
+        view.delegate = strongSelf
+        return view
+    }()
 
-    var targetDate = Date()
+    internal var targetDate = Date()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,8 +27,6 @@ final class SessionListViewController: UIViewController {
 
     private func setupUI() {
         view.backgroundColor = .white
-
-        calendarView.delegate = self
         view.addSubview(calendarView) { (view) -> ([NSLayoutConstraint]) in
             [
                 view.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor),
@@ -40,12 +43,10 @@ extension SessionListViewController: CalendarViewDelegate {
     func tapPrevButton() {
         targetDate.month -= 1
         calendarView.configureWith(year: targetDate.year, month: targetDate.month)
-        print(targetDate)
     }
 
     func tapNextButton() {
         targetDate.month += 1
         calendarView.configureWith(year: targetDate.year, month: targetDate.month)
-        print(targetDate)
     }
 }
