@@ -11,6 +11,13 @@
 		933709C120A6F63F0097F80A /* CalendarHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933709C020A6F63F0097F80A /* CalendarHeaderView.swift */; };
 		933709C320A6F6650097F80A /* CalendarContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933709C220A6F6650097F80A /* CalendarContainerView.swift */; };
 		933709C520A6F6DD0097F80A /* CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933709C420A6F6DD0097F80A /* CalendarCollectionViewCell.swift */; };
+		9371745F20A84616008A0298 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93867A4520A83D94007979E5 /* Alamofire.framework */; };
+		9371746020A84616008A0298 /* Moya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93867A4620A83D94007979E5 /* Moya.framework */; };
+		9371746120A84616008A0298 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93867A4720A83D94007979E5 /* Result.framework */; };
+		9371746920A87611008A0298 /* ConnpassDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9371746620A853A3008A0298 /* ConnpassDataStore.swift */; };
+		9371746A20A87611008A0298 /* ConnpassAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9371745D20A84413008A0298 /* ConnpassAPI.swift */; };
+		9371746B20A87611008A0298 /* ConnpassResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9371746420A85204008A0298 /* ConnpassResult.swift */; };
+		9371746C20A87611008A0298 /* sampleSearch.json in Resources */ = {isa = PBXBuildFile; fileRef = 9371746220A848F4008A0298 /* sampleSearch.json */; };
 		937D66BD20A5E7E90093B177 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937D66BC20A5E7E90093B177 /* AppDelegate.swift */; };
 		937D66BF20A5E7E90093B177 /* SessionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937D66BE20A5E7E90093B177 /* SessionListViewController.swift */; };
 		937D66C420A5E7EA0093B177 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 937D66C320A5E7EA0093B177 /* Assets.xcassets */; };
@@ -110,6 +117,10 @@
 		933709C020A6F63F0097F80A /* CalendarHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHeaderView.swift; sourceTree = "<group>"; };
 		933709C220A6F6650097F80A /* CalendarContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarContainerView.swift; sourceTree = "<group>"; };
 		933709C420A6F6DD0097F80A /* CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
+		9371745D20A84413008A0298 /* ConnpassAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnpassAPI.swift; sourceTree = "<group>"; };
+		9371746220A848F4008A0298 /* sampleSearch.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = sampleSearch.json; sourceTree = "<group>"; };
+		9371746420A85204008A0298 /* ConnpassResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnpassResult.swift; sourceTree = "<group>"; };
+		9371746620A853A3008A0298 /* ConnpassDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnpassDataStore.swift; sourceTree = "<group>"; };
 		937D66B920A5E7E90093B177 /* StudySessionNavi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudySessionNavi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		937D66BC20A5E7E90093B177 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		937D66BE20A5E7E90093B177 /* SessionListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionListViewController.swift; sourceTree = "<group>"; };
@@ -183,6 +194,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9371745F20A84616008A0298 /* Alamofire.framework in Frameworks */,
+				9371746020A84616008A0298 /* Moya.framework in Frameworks */,
+				9371746120A84616008A0298 /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,6 +221,18 @@
 				93867A1120A73492007979E5 /* CalendarCollectionViewCellViewModel.swift */,
 			);
 			path = Calendar;
+			sourceTree = "<group>";
+		};
+		9371746820A853AB008A0298 /* ConnpassAPI */ = {
+			isa = PBXGroup;
+			children = (
+				9371746620A853A3008A0298 /* ConnpassDataStore.swift */,
+				9371745D20A84413008A0298 /* ConnpassAPI.swift */,
+				9371746420A85204008A0298 /* ConnpassResult.swift */,
+				9371746220A848F4008A0298 /* sampleSearch.json */,
+			);
+			name = ConnpassAPI;
+			path = AppRequest;
 			sourceTree = "<group>";
 		};
 		937D66B020A5E7E90093B177 = {
@@ -240,6 +266,7 @@
 		937D66BB20A5E7E90093B177 /* StudySessionNavi */ = {
 			isa = PBXGroup;
 			children = (
+				9371746820A853AB008A0298 /* ConnpassAPI */,
 				937D66BC20A5E7E90093B177 /* AppDelegate.swift */,
 				937D66DC20A5EA110093B177 /* MenuTabBarController.swift */,
 				937D66BE20A5E7E90093B177 /* SessionListViewController.swift */,
@@ -480,6 +507,7 @@
 					};
 					93867A7A20A841C1007979E5 = {
 						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 0930;
 					};
 					93867A8220A841C1007979E5 = {
 						CreatedOnToolsVersion = 9.3;
@@ -515,6 +543,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9371746C20A87611008A0298 /* sampleSearch.json in Resources */,
 				937D66C720A5E7EA0093B177 /* LaunchScreen.storyboard in Resources */,
 				937D66C420A5E7EA0093B177 /* Assets.xcassets in Resources */,
 			);
@@ -584,8 +613,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				937D66BF20A5E7E90093B177 /* SessionListViewController.swift in Sources */,
+				9371746A20A87611008A0298 /* ConnpassAPI.swift in Sources */,
 				937D66BD20A5E7E90093B177 /* AppDelegate.swift in Sources */,
+				9371746920A87611008A0298 /* ConnpassDataStore.swift in Sources */,
 				937D66DD20A5EA110093B177 /* MenuTabBarController.swift in Sources */,
+				9371746B20A87611008A0298 /* ConnpassResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -996,6 +1028,7 @@
 		93867A9220A841C1007979E5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1004,6 +1037,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = AppRequest/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1015,6 +1052,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = shymst.AppRequest;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1025,6 +1063,7 @@
 		93867A9320A841C1007979E5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1033,6 +1072,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = AppRequest/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1054,7 +1097,6 @@
 		93867A9420A841C1007979E5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YEF9KW58C5;
 				INFOPLIST_FILE = AppRequestTests/Info.plist;
@@ -1075,7 +1117,6 @@
 		93867A9520A841C1007979E5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YEF9KW58C5;
 				INFOPLIST_FILE = AppRequestTests/Info.plist;

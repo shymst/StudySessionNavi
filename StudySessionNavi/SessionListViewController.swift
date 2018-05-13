@@ -23,6 +23,11 @@ final class SessionListViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         calendarView.configureWith(year: targetDate.year, month: targetDate.month)
+
+        let dataStore = ConnpassDataStoreImpl()
+        dataStore.search(keyword: "") { (result) in
+            print(result)
+        }
     }
 
     private func setupUI() {
