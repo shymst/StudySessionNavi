@@ -94,7 +94,6 @@ extension SessionListViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SessionListCell", for: indexPath) as? SessionListCollectionViewCell else { fatalError() }
 //        cell.configureWith(viewModel: viewModels[indexPath.row])
-        cell.backgroundColor = .gray
 //        cell.widthAnchor.constraint(equalToConstant: view.bounds.width).isActive = true
         return cell
     }
