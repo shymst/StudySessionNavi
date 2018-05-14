@@ -43,6 +43,7 @@
 		93867A8D20A841C1007979E5 /* AppRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 93867A7D20A841C1007979E5 /* AppRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		93867A9020A841C1007979E5 /* AppRequest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93867A7B20A841C1007979E5 /* AppRequest.framework */; };
 		93867A9120A841C1007979E5 /* AppRequest.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 93867A7B20A841C1007979E5 /* AppRequest.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		93D5389E20A9CC0B00398195 /* SessionListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D5389D20A9CC0B00398195 /* SessionListCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -153,6 +154,7 @@
 		93867A8320A841C1007979E5 /* AppRequestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppRequestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		93867A8A20A841C1007979E5 /* AppRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRequestTests.swift; sourceTree = "<group>"; };
 		93867A8C20A841C1007979E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		93D5389D20A9CC0B00398195 /* SessionListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionListCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -270,6 +272,7 @@
 				937D66BC20A5E7E90093B177 /* AppDelegate.swift */,
 				937D66DC20A5EA110093B177 /* MenuTabBarController.swift */,
 				937D66BE20A5E7E90093B177 /* SessionListViewController.swift */,
+				93D5389D20A9CC0B00398195 /* SessionListCollectionViewCell.swift */,
 				937D66C320A5E7EA0093B177 /* Assets.xcassets */,
 				937D66C520A5E7EA0093B177 /* LaunchScreen.storyboard */,
 				937D66C820A5E7EA0093B177 /* Info.plist */,
@@ -615,6 +618,7 @@
 				937D66BF20A5E7E90093B177 /* SessionListViewController.swift in Sources */,
 				9371746A20A87611008A0298 /* ConnpassAPI.swift in Sources */,
 				937D66BD20A5E7E90093B177 /* AppDelegate.swift in Sources */,
+				93D5389E20A9CC0B00398195 /* SessionListCollectionViewCell.swift in Sources */,
 				9371746920A87611008A0298 /* ConnpassDataStore.swift in Sources */,
 				937D66DD20A5EA110093B177 /* MenuTabBarController.swift in Sources */,
 				9371746B20A87611008A0298 /* ConnpassResult.swift in Sources */,
