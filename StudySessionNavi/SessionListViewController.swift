@@ -31,12 +31,16 @@ final class SessionListViewController: UIViewController {
         return collectionView
     }()
 
-    internal var targetDate = Date()
+    private var targetDate: Date! {
+        didSet {
+            calendarView.configureWith(year: targetDate.year, month: targetDate.month)
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        calendarView.configureWith(year: targetDate.year, month: targetDate.month)
+        targetDate = Date()
 
 //        let dataStore = ConnpassDataStoreImpl()
 //        dataStore.search(keyword: "") { (result) in
@@ -110,11 +114,9 @@ extension SessionListViewController: UICollectionViewDelegate {
 extension SessionListViewController: CalendarViewDelegate {
     func tapPrevButton() {
         targetDate.month -= 1
-        calendarView.configureWith(year: targetDate.year, month: targetDate.month)
     }
 
     func tapNextButton() {
         targetDate.month += 1
-        calendarView.configureWith(year: targetDate.year, month: targetDate.month)
     }
 }
