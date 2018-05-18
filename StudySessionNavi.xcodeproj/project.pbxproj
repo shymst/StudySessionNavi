@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		933494F820ADCAE0003C7C44 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933494F720ADCAE0003C7C44 /* PaddingLabel.swift */; };
+		933494F920ADCDDD003C7C44 /* SessionListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D5389D20A9CC0B00398195 /* SessionListCollectionViewCell.swift */; };
+		933494FB20AF0B1B003C7C44 /* CALayer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933494FA20AF0B1B003C7C44 /* CALayer+.swift */; };
 		933709BE20A6EDD30097F80A /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933709BD20A6EDD30097F80A /* UIColor+.swift */; };
 		933709C120A6F63F0097F80A /* CalendarHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933709C020A6F63F0097F80A /* CalendarHeaderView.swift */; };
 		933709C320A6F6650097F80A /* CalendarContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933709C220A6F6650097F80A /* CalendarContainerView.swift */; };
@@ -43,7 +46,6 @@
 		93867A8D20A841C1007979E5 /* AppRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 93867A7D20A841C1007979E5 /* AppRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		93867A9020A841C1007979E5 /* AppRequest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93867A7B20A841C1007979E5 /* AppRequest.framework */; };
 		93867A9120A841C1007979E5 /* AppRequest.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 93867A7B20A841C1007979E5 /* AppRequest.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		93D5389E20A9CC0B00398195 /* SessionListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D5389D20A9CC0B00398195 /* SessionListCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +116,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		933494F720ADCAE0003C7C44 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
+		933494FA20AF0B1B003C7C44 /* CALayer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+.swift"; sourceTree = "<group>"; };
 		933709BD20A6EDD30097F80A /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		933709C020A6F63F0097F80A /* CalendarHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHeaderView.swift; sourceTree = "<group>"; };
 		933709C220A6F6650097F80A /* CalendarContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarContainerView.swift; sourceTree = "<group>"; };
@@ -272,7 +276,6 @@
 				937D66BC20A5E7E90093B177 /* AppDelegate.swift */,
 				937D66DC20A5EA110093B177 /* MenuTabBarController.swift */,
 				937D66BE20A5E7E90093B177 /* SessionListViewController.swift */,
-				93D5389D20A9CC0B00398195 /* SessionListCollectionViewCell.swift */,
 				937D66C320A5E7EA0093B177 /* Assets.xcassets */,
 				937D66C520A5E7EA0093B177 /* LaunchScreen.storyboard */,
 				937D66C820A5E7EA0093B177 /* Info.plist */,
@@ -292,6 +295,8 @@
 		937D66E420A5F1FB0093B177 /* UIComponent */ = {
 			isa = PBXGroup;
 			children = (
+				93D5389D20A9CC0B00398195 /* SessionListCollectionViewCell.swift */,
+				933494F720ADCAE0003C7C44 /* PaddingLabel.swift */,
 				937D670720A5F7550093B177 /* Extensions */,
 				933709BF20A6F6280097F80A /* Calendar */,
 				937D66E520A5F1FB0093B177 /* UIComponent.h */,
@@ -317,6 +322,7 @@
 				937D670420A5F7450093B177 /* UIView+.swift */,
 				933709BD20A6EDD30097F80A /* UIColor+.swift */,
 				93867A0D20A710D2007979E5 /* Date+.swift */,
+				933494FA20AF0B1B003C7C44 /* CALayer+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -618,7 +624,6 @@
 				937D66BF20A5E7E90093B177 /* SessionListViewController.swift in Sources */,
 				9371746A20A87611008A0298 /* ConnpassAPI.swift in Sources */,
 				937D66BD20A5E7E90093B177 /* AppDelegate.swift in Sources */,
-				93D5389E20A9CC0B00398195 /* SessionListCollectionViewCell.swift in Sources */,
 				9371746920A87611008A0298 /* ConnpassDataStore.swift in Sources */,
 				937D66DD20A5EA110093B177 /* MenuTabBarController.swift in Sources */,
 				9371746B20A87611008A0298 /* ConnpassResult.swift in Sources */,
@@ -638,11 +643,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				933709C320A6F6650097F80A /* CalendarContainerView.swift in Sources */,
+				933494FB20AF0B1B003C7C44 /* CALayer+.swift in Sources */,
 				933709C520A6F6DD0097F80A /* CalendarCollectionViewCell.swift in Sources */,
 				937D670B20A5F7C60093B177 /* Extension.swift in Sources */,
 				933709BE20A6EDD30097F80A /* UIColor+.swift in Sources */,
 				937D670A20A5F7C20093B177 /* UIView+.swift in Sources */,
+				933494F920ADCDDD003C7C44 /* SessionListCollectionViewCell.swift in Sources */,
 				933709C120A6F63F0097F80A /* CalendarHeaderView.swift in Sources */,
+				933494F820ADCAE0003C7C44 /* PaddingLabel.swift in Sources */,
 				93867A1220A73492007979E5 /* CalendarCollectionViewCellViewModel.swift in Sources */,
 				937D670320A5F2740093B177 /* CalendarView.swift in Sources */,
 				93867A0E20A710D2007979E5 /* Date+.swift in Sources */,

@@ -29,4 +29,12 @@ extension Extension where Base: UIColor {
     static var calendarHeaderGray: UIColor {
         return UIColor(red: 248.0 / 255.0, green: 248.0 / 255.0, blue: 249.0 / 255.0, alpha: 1.0)
     }
+
+    static var planTitleGray: UIColor {
+        return UIColor(red: 109.0 / 255.0, green: 109.0 / 255.0, blue: 114.0 / 255.0, alpha: 1.0)
+    }
+
+    static var planBookOrange: UIColor {
+        return UIColor(red: 1.0, green: 121.0 / 255.0, blue: 0.0, alpha: 1.0)
+    }
 }
