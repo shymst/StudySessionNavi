@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxSwift
 
 final class CalendarContainerView: UIView {
 
@@ -20,7 +21,7 @@ final class CalendarContainerView: UIView {
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .clear
-        collectionView.register(CalendarCollectionViewCell.self, forCellWithReuseIdentifier: "CalendarCell")
+        collectionView.register(CalendarCell.self, forCellWithReuseIdentifier: "CalendarCell")
         guard let strongSelf = self else { fatalError() }
         collectionView.dataSource = strongSelf
         collectionView.delegate = strongSelf
@@ -30,39 +31,32 @@ final class CalendarContainerView: UIView {
     private var cellSizeWidth: CGFloat = 0
     private var cellSizeHeight: CGFloat = 0
 
-    private var viewModels = [CalendarCollectionViewCellViewModel]() {
-        didSet {
-            collectionView.reloadData()
-        }
-    }
+    let viewModel: CalendarContainerViewModelType = CalendarContainerViewModel()
+
+    private let disposeBag = DisposeBag()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
+        setupBind()
     }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupUI()
+        setupBind()
+    }
+
+    private func setupBind() {
+        viewModel.outputs.eventDateList.asObservable()
+            .subscribe {
+                self.collectionView.reloadData()
+            }
+            .disposed(by: disposeBag)
     }
 
     internal func configureWith(year: Int, month: Int) {
-        var newViewModels = [CalendarCollectionViewCellViewModel]()
-        let weeks = Date.ex.getWeeks(year: year, month: month)
-        for week in weeks {
-            for (index, day) in week.enumerated() {
-                var type: CalendarCollectionViewCellViewModel.DayType
-                switch index {
-                case 0: type = .holiday
-                case 6: type = .saturday
-                default: type = .weekday
-                }
-                let viewModel = CalendarCollectionViewCellViewModel(day: day, count: 0, type: type, isSelected: false)
-                newViewModels.append(viewModel)
-            }
-        }
-        viewModels = newViewModels
-        collectionView.reloadData()
+        viewModel.inputs.configureWith(year: year, month: month)
     }
 
     private func setCellSize() {
@@ -159,12 +153,13 @@ extension CalendarContainerView: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModels.count
+        return viewModel.outputs.eventDateList.value.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CalendarCell", for: indexPath) as? CalendarCollectionViewCell else { fatalError() }
-        cell.configureWith(viewModel: viewModels[indexPath.row])
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CalendarCell", for: indexPath) as? CalendarCell else { fatalError() }
+        let date = viewModel.outputs.eventDateList.value[indexPath.row]
+        cell.configureWith(type: date.type, day: date.day, count: date.count)
         return cell
     }
 }

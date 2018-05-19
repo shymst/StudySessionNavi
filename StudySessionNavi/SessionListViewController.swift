@@ -24,7 +24,7 @@ final class SessionListViewController: UIViewController {
         layout.estimatedItemSize = UICollectionViewFlowLayoutAutomaticSize
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .clear
-        collectionView.register(SessionListCollectionViewCell.self, forCellWithReuseIdentifier: "SessionListCell")
+        collectionView.register(SessionCell.self, forCellWithReuseIdentifier: "SessionCell")
         collectionView.register(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "CalendarHeaderView")
         guard let strongSelf = self else { fatalError() }
         collectionView.dataSource = strongSelf
@@ -91,8 +91,8 @@ extension SessionListViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SessionListCell", for: indexPath) as? SessionListCollectionViewCell else { fatalError() }
-        cell.configureWith(session: viewModel.outputs.sessionList[indexPath.row])
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SessionCell", for: indexPath) as? SessionCell else { fatalError() }
+//        cell.configureWith(session: viewModel.outputs.sessionList[indexPath.row])
         return cell
     }
 

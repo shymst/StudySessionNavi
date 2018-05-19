@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class CalendarCollectionViewCell: UICollectionViewCell {
+final class CalendarCell: UICollectionViewCell {
 
     private lazy var dayLabel: UILabel = { [weak self] in
         guard let strongSelf = self else { fatalError() }
@@ -44,11 +44,8 @@ final class CalendarCollectionViewCell: UICollectionViewCell {
         addSubview(countLabel)
     }
 
-    internal func configureWith(viewModel: CalendarCollectionViewCellViewModel) {
-        dayLabel.text = "\(viewModel.day)"
-        countLabel.text = "\(viewModel.count)"
-
-        switch viewModel.type {
+    internal func configureWith(type: DayType, day: Int, count: Int) {
+        switch type {
         case .weekday:
             dayLabel.textColor = UIColor.ex.textBlack
         case .saturday:
@@ -56,10 +53,12 @@ final class CalendarCollectionViewCell: UICollectionViewCell {
         case .holiday, .sunday:
             dayLabel.textColor = .red
         }
+        dayLabel.text = "\(day)"
+        countLabel.text = "\(count)"
 
-        if viewModel.isSelected {
-            backgroundColor = .blue
-            countLabel.textColor = .white
-        }
+//        if isSelected {
+//            backgroundColor = .blue
+//            countLabel.textColor = .white
+//        }
     }
 }
