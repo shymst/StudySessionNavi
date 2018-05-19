@@ -15,6 +15,7 @@
 		9334950020AFA568003C7C44 /* ConnpassAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9371745D20A84413008A0298 /* ConnpassAPI.swift */; };
 		9334950120AFA568003C7C44 /* ConnpassDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9371746620A853A3008A0298 /* ConnpassDataStore.swift */; };
 		9334950320AFC6F9003C7C44 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9334950220AFC6F8003C7C44 /* RxSwift.framework */; };
+		9334950520AFCFC9003C7C44 /* SessionListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9334950420AFCFC9003C7C44 /* SessionListViewModel.swift */; };
 		933709BE20A6EDD30097F80A /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933709BD20A6EDD30097F80A /* UIColor+.swift */; };
 		933709C120A6F63F0097F80A /* CalendarHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933709C020A6F63F0097F80A /* CalendarHeaderView.swift */; };
 		933709C320A6F6650097F80A /* CalendarContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933709C220A6F6650097F80A /* CalendarContainerView.swift */; };
@@ -122,6 +123,7 @@
 		933494FA20AF0B1B003C7C44 /* CALayer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+.swift"; sourceTree = "<group>"; };
 		933494FC20AF9CBF003C7C44 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		9334950220AFC6F8003C7C44 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		9334950420AFCFC9003C7C44 /* SessionListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionListViewModel.swift; sourceTree = "<group>"; };
 		933709BD20A6EDD30097F80A /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		933709C020A6F63F0097F80A /* CalendarHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHeaderView.swift; sourceTree = "<group>"; };
 		933709C220A6F6650097F80A /* CalendarContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarContainerView.swift; sourceTree = "<group>"; };
@@ -268,6 +270,7 @@
 				937D66BC20A5E7E90093B177 /* AppDelegate.swift */,
 				937D66DC20A5EA110093B177 /* MenuTabBarController.swift */,
 				937D66BE20A5E7E90093B177 /* SessionListViewController.swift */,
+				9334950420AFCFC9003C7C44 /* SessionListViewModel.swift */,
 				933494FC20AF9CBF003C7C44 /* Session.swift */,
 				937D66C320A5E7EA0093B177 /* Assets.xcassets */,
 				937D66C520A5E7EA0093B177 /* LaunchScreen.storyboard */,
@@ -623,6 +626,7 @@
 				933494FD20AF9CBF003C7C44 /* Session.swift in Sources */,
 				937D66BF20A5E7E90093B177 /* SessionListViewController.swift in Sources */,
 				937D66BD20A5E7E90093B177 /* AppDelegate.swift in Sources */,
+				9334950520AFCFC9003C7C44 /* SessionListViewModel.swift in Sources */,
 				933494FE20AFA47C003C7C44 /* SessionListCollectionViewCell.swift in Sources */,
 				937D66DD20A5EA110093B177 /* MenuTabBarController.swift in Sources */,
 			);
