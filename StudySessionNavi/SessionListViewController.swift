@@ -7,6 +7,7 @@
 
 import UIKit
 import UIComponent
+import RxSwift
 
 protocol SessionListViewModelInputs {
     func decrementTargetMonth()
@@ -18,7 +19,7 @@ protocol SessionListViewModelOutputs {
     var numberOfSections: Int { get }
     var numberOfItemsInSection: Int { get }
     var sessionList: [Session] { get }
-    var targetDate: Date { get }
+    var targetDate: Variable<Date> { get }
 }
 
 // 使用側はこの型を使用することでシンプルに扱える
@@ -37,16 +38,16 @@ final class SessionListViewModel: SessionListViewModelType, SessionListViewModel
     let numberOfSections: Int = 1
     let numberOfItemsInSection: Int = 0
     let sessionList: [Session] = []
-    var targetDate: Date = Date()
+    var targetDate: Variable<Date> = Variable(Date())
 
     // MARK: - HogeViewModelOutputs
 
     func decrementTargetMonth() {
-        targetDate.month -= 1
+        targetDate.value.month -= 1
     }
 
     func incrementTargetMonth() {
-        targetDate.month += 1
+        targetDate.value.month += 1
     }
 
     func getSessionList() {
@@ -82,12 +83,12 @@ final class SessionListViewController: UIViewController {
 
     private let viewModel: SessionListViewModelType = SessionListViewModel()
 
+    private let disposeBag = DisposeBag()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-
-        // viewModel.outputs.targetDateの値が変わったら下記を叩きたい
-        calendarView.configureWith(year: viewModel.outputs.targetDate.year, month: viewModel.outputs.targetDate.month)
+        setupBind()
     }
 
     private func setupUI() {
@@ -101,6 +102,15 @@ final class SessionListViewController: UIViewController {
                 view.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor)
             ]
         }
+    }
+
+    private func setupBind() {
+        viewModel.outputs.targetDate.asObservable()
+            .subscribe { value in
+                guard let date = value.element else { return }
+                self.calendarView.configureWith(year: date.year, month: date.month)
+            }
+            .disposed(by: disposeBag)
     }
 }
 

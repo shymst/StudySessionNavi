@@ -14,6 +14,7 @@
 		933494FF20AFA568003C7C44 /* ConnpassResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9371746420A85204008A0298 /* ConnpassResult.swift */; };
 		9334950020AFA568003C7C44 /* ConnpassAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9371745D20A84413008A0298 /* ConnpassAPI.swift */; };
 		9334950120AFA568003C7C44 /* ConnpassDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9371746620A853A3008A0298 /* ConnpassDataStore.swift */; };
+		9334950320AFC6F9003C7C44 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9334950220AFC6F8003C7C44 /* RxSwift.framework */; };
 		933709BE20A6EDD30097F80A /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933709BD20A6EDD30097F80A /* UIColor+.swift */; };
 		933709C120A6F63F0097F80A /* CalendarHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933709C020A6F63F0097F80A /* CalendarHeaderView.swift */; };
 		933709C320A6F6650097F80A /* CalendarContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933709C220A6F6650097F80A /* CalendarContainerView.swift */; };
@@ -120,6 +121,7 @@
 		933494F720ADCAE0003C7C44 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		933494FA20AF0B1B003C7C44 /* CALayer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+.swift"; sourceTree = "<group>"; };
 		933494FC20AF9CBF003C7C44 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		9334950220AFC6F8003C7C44 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		933709BD20A6EDD30097F80A /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		933709C020A6F63F0097F80A /* CalendarHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHeaderView.swift; sourceTree = "<group>"; };
 		933709C220A6F6650097F80A /* CalendarContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarContainerView.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9334950320AFC6F9003C7C44 /* RxSwift.framework in Frameworks */,
 				93867A4820A83D94007979E5 /* Alamofire.framework in Frameworks */,
 				93867A4920A83D94007979E5 /* Moya.framework in Frameworks */,
 				93867A9020A841C1007979E5 /* AppRequest.framework in Frameworks */,
@@ -320,6 +323,7 @@
 		93867A4420A83D93007979E5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9334950220AFC6F8003C7C44 /* RxSwift.framework */,
 				93867A4520A83D94007979E5 /* Alamofire.framework */,
 				93867A4620A83D94007979E5 /* Moya.framework */,
 				93867A4720A83D94007979E5 /* Result.framework */,
@@ -378,7 +382,7 @@
 				937D66B520A5E7E90093B177 /* Sources */,
 				937D66B620A5E7E90093B177 /* Frameworks */,
 				937D66B720A5E7E90093B177 /* Resources */,
-				93867A3F20A8377D007979E5 /* cathage */,
+				93867A3F20A8377D007979E5 /* Cathage */,
 				93867A5320A83DF3007979E5 /* Embed Frameworks */,
 			);
 			buildRules = (
@@ -591,7 +595,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		93867A3F20A8377D007979E5 /* cathage */ = {
+		93867A3F20A8377D007979E5 /* Cathage */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -600,8 +604,9 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Moya.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Result.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
 			);
-			name = cathage;
+			name = Cathage;
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
