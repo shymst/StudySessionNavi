@@ -35,7 +35,7 @@ final class SessionListViewModel: SessionListViewModelType, SessionListViewModel
     // MARK: - HogeViewModelInputs
 
     let numberOfSections: Int = 1
-    let numberOfItemsInSection: Int = 0
+    let numberOfItemsInSection: Int = 10
     let sessionList: [Session] = []
     var targetDate: Variable<Date> = Variable(Date())
 
@@ -50,9 +50,9 @@ final class SessionListViewModel: SessionListViewModelType, SessionListViewModel
     }
 
     func getSessionList() {
-        //        let dataStore = ConnpassDataStoreImpl()
-        //        dataStore.search(keyword: "") { (result) in
-        //            print(result)
-        //        }
+//        let dataStore = ConnpassDataStoreImpl()
+//        dataStore.search(keyword: "") { (result) in
+//            print(result)
+//        }
     }
 }

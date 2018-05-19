@@ -49,7 +49,7 @@ final class CalendarContainerView: UIView {
 
     private func setupBind() {
         viewModel.outputs.eventDateList.asObservable()
-            .subscribe {
+            .subscribe { _ in
                 self.collectionView.reloadData()
             }
             .disposed(by: disposeBag)
@@ -81,7 +81,7 @@ final class CalendarContainerView: UIView {
 
         addSubview(collectionView) { (view) -> ([NSLayoutConstraint]) in
             [
-                view.topAnchor.constraint(equalTo: weekHeaderView.bottomAnchor, constant: 1),
+                view.topAnchor.constraint(equalTo: weekHeaderView.bottomAnchor),
                 view.leadingAnchor.constraint(equalTo: leadingAnchor),
                 view.trailingAnchor.constraint(equalTo: trailingAnchor),
                 view.bottomAnchor.constraint(equalTo: bottomAnchor)

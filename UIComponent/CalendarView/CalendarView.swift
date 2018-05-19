@@ -39,8 +39,8 @@ final public class CalendarView: UIView {
         addSubview(headerView) { (view) -> ([NSLayoutConstraint]) in
             [
                 view.topAnchor.constraint(equalTo: topAnchor),
-                view.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-                view.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+                view.leadingAnchor.constraint(equalTo: leadingAnchor),
+                view.trailingAnchor.constraint(equalTo: trailingAnchor),
                 view.heightAnchor.constraint(equalToConstant: 46)
             ]
         }
@@ -48,8 +48,8 @@ final public class CalendarView: UIView {
         addSubview(containerView) { (view) -> ([NSLayoutConstraint]) in
             [
                 view.topAnchor.constraint(equalTo: headerView.bottomAnchor),
-                view.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-                view.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+                view.leadingAnchor.constraint(equalTo: leadingAnchor),
+                view.trailingAnchor.constraint(equalTo: trailingAnchor),
                 view.heightAnchor.constraint(equalToConstant: 248)
             ]
         }

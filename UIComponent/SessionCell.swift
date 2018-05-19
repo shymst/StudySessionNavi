@@ -23,9 +23,8 @@ final public class SessionCell: UICollectionViewCell {
 
     private func setupUI() {
         backgroundColor = UIColor.ex.borderLightGray
-        widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width).isActive = true
     }
-//
+
 //    internal func configureWith(session: Session) {
 //        print(session)
 //    }

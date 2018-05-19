@@ -48,8 +48,8 @@ final class SessionListViewController: UIViewController {
         view.addSubview(collectionView) { (view) -> ([NSLayoutConstraint]) in
             [
                 view.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor),
-                view.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-                view.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+                view.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 10),
+                view.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -10),
                 view.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor)
             ]
         }
@@ -100,10 +100,10 @@ extension SessionListViewController: UICollectionViewDataSource {
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "CalendarHeaderView", for: indexPath)
         headerView.addSubview(calendarView) { (view) -> ([NSLayoutConstraint]) in
             [
-                view.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor),
-                view.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-                view.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-                view.heightAnchor.constraint(equalToConstant: 318)
+                view.topAnchor.constraint(equalTo: headerView.topAnchor),
+                view.leadingAnchor.constraint(equalTo: headerView.leadingAnchor),
+                view.trailingAnchor.constraint(equalTo: headerView.trailingAnchor),
+                view.bottomAnchor.constraint(equalTo: headerView.bottomAnchor)
             ]
         }
         return headerView
