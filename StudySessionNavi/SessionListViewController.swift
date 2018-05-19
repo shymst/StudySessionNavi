@@ -8,6 +8,55 @@
 import UIKit
 import UIComponent
 
+protocol SessionListViewModelInputs {
+    func decrementTargetMonth()
+    func incrementTargetMonth()
+    func getSessionList()
+}
+
+protocol SessionListViewModelOutputs {
+    var numberOfSections: Int { get }
+    var numberOfItemsInSection: Int { get }
+    var sessionList: [Session] { get }
+    var targetDate: Date { get }
+}
+
+// 使用側はこの型を使用することでシンプルに扱える
+protocol SessionListViewModelType {
+    var inputs: SessionListViewModelInputs { get }
+    var outputs: SessionListViewModelOutputs { get }
+}
+
+final class SessionListViewModel: SessionListViewModelType, SessionListViewModelInputs, SessionListViewModelOutputs {
+
+    var inputs: SessionListViewModelInputs { return self }
+    var outputs: SessionListViewModelOutputs { return self }
+
+    // MARK: - HogeViewModelInputs
+
+    let numberOfSections: Int = 1
+    let numberOfItemsInSection: Int = 0
+    let sessionList: [Session] = []
+    var targetDate: Date = Date()
+
+    // MARK: - HogeViewModelOutputs
+
+    func decrementTargetMonth() {
+        targetDate.month -= 1
+    }
+
+    func incrementTargetMonth() {
+        targetDate.month += 1
+    }
+
+    func getSessionList() {
+//        let dataStore = ConnpassDataStoreImpl()
+//        dataStore.search(keyword: "") { (result) in
+//            print(result)
+//        }
+    }
+}
+
 final class SessionListViewController: UIViewController {
 
     private lazy var calendarView: CalendarView = { [weak self] in
@@ -24,44 +73,29 @@ final class SessionListViewController: UIViewController {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .clear
         collectionView.register(SessionListCollectionViewCell.self, forCellWithReuseIdentifier: "SessionListCell")
+        collectionView.register(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "CalendarHeaderView")
         guard let strongSelf = self else { fatalError() }
         collectionView.dataSource = strongSelf
         collectionView.delegate = strongSelf
-        collectionView.backgroundColor = .red
         return collectionView
     }()
 
-    private var targetDate: Date! {
-        didSet {
-            calendarView.configureWith(year: targetDate.year, month: targetDate.month)
-        }
-    }
+    private let viewModel: SessionListViewModelType = SessionListViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        targetDate = Date()
 
-//        let dataStore = ConnpassDataStoreImpl()
-//        dataStore.search(keyword: "") { (result) in
-//            print(result)
-//        }
+        // viewModel.outputs.targetDateの値が変わったら下記を叩きたい
+        calendarView.configureWith(year: viewModel.outputs.targetDate.year, month: viewModel.outputs.targetDate.month)
     }
 
     private func setupUI() {
         view.backgroundColor = .white
-        view.addSubview(calendarView) { (view) -> ([NSLayoutConstraint]) in
-            [
-                view.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor),
-                view.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-                view.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-                view.heightAnchor.constraint(equalToConstant: 318)
-            ]
-        }
 
         view.addSubview(collectionView) { (view) -> ([NSLayoutConstraint]) in
             [
-                view.topAnchor.constraint(equalTo: calendarView.bottomAnchor),
+                view.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor),
                 view.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
                 view.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
                 view.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor)
@@ -72,10 +106,6 @@ final class SessionListViewController: UIViewController {
 
 // MARK: - UICollectionViewDelegateFlowLayout
 extension SessionListViewController: UICollectionViewDelegateFlowLayout {
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        return CGSize(width: view.bounds.width, height: UICollectionViewFlowLayoutAutomaticSize.height)
-//    }
-
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 10
     }
@@ -83,23 +113,39 @@ extension SessionListViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 10
     }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: view.frame.width, height: 318)
+    }
 }
 
 // MARK: - UICollectionViewDataSource
 extension SessionListViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2
+        return viewModel.outputs.numberOfSections
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return viewModel.outputs.numberOfItemsInSection
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SessionListCell", for: indexPath) as? SessionListCollectionViewCell else { fatalError() }
-//        cell.configureWith(viewModel: viewModels[indexPath.row])
-//        cell.widthAnchor.constraint(equalToConstant: view.bounds.width).isActive = true
+        cell.configureWith(session: viewModel.outputs.sessionList[indexPath.row])
         return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "CalendarHeaderView", for: indexPath)
+        headerView.addSubview(calendarView) { (view) -> ([NSLayoutConstraint]) in
+            [
+                view.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor),
+                view.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+                view.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+                view.heightAnchor.constraint(equalToConstant: 318)
+            ]
+        }
+        return headerView
     }
 }
 
@@ -113,10 +159,10 @@ extension SessionListViewController: UICollectionViewDelegate {
 // MARK: - CalendarHeaderViewDelegate
 extension SessionListViewController: CalendarViewDelegate {
     func tapPrevButton() {
-        targetDate.month -= 1
+        viewModel.inputs.decrementTargetMonth()
     }
 
     func tapNextButton() {
-        targetDate.month += 1
+        viewModel.inputs.incrementTargetMonth()
     }
 }

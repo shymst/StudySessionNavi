@@ -8,8 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		933494F820ADCAE0003C7C44 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933494F720ADCAE0003C7C44 /* PaddingLabel.swift */; };
-		933494F920ADCDDD003C7C44 /* SessionListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D5389D20A9CC0B00398195 /* SessionListCollectionViewCell.swift */; };
 		933494FB20AF0B1B003C7C44 /* CALayer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933494FA20AF0B1B003C7C44 /* CALayer+.swift */; };
+		933494FD20AF9CBF003C7C44 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933494FC20AF9CBF003C7C44 /* Session.swift */; };
+		933494FE20AFA47C003C7C44 /* SessionListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D5389D20A9CC0B00398195 /* SessionListCollectionViewCell.swift */; };
+		933494FF20AFA568003C7C44 /* ConnpassResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9371746420A85204008A0298 /* ConnpassResult.swift */; };
+		9334950020AFA568003C7C44 /* ConnpassAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9371745D20A84413008A0298 /* ConnpassAPI.swift */; };
+		9334950120AFA568003C7C44 /* ConnpassDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9371746620A853A3008A0298 /* ConnpassDataStore.swift */; };
 		933709BE20A6EDD30097F80A /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933709BD20A6EDD30097F80A /* UIColor+.swift */; };
 		933709C120A6F63F0097F80A /* CalendarHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933709C020A6F63F0097F80A /* CalendarHeaderView.swift */; };
 		933709C320A6F6650097F80A /* CalendarContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933709C220A6F6650097F80A /* CalendarContainerView.swift */; };
@@ -17,9 +21,6 @@
 		9371745F20A84616008A0298 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93867A4520A83D94007979E5 /* Alamofire.framework */; };
 		9371746020A84616008A0298 /* Moya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93867A4620A83D94007979E5 /* Moya.framework */; };
 		9371746120A84616008A0298 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93867A4720A83D94007979E5 /* Result.framework */; };
-		9371746920A87611008A0298 /* ConnpassDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9371746620A853A3008A0298 /* ConnpassDataStore.swift */; };
-		9371746A20A87611008A0298 /* ConnpassAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9371745D20A84413008A0298 /* ConnpassAPI.swift */; };
-		9371746B20A87611008A0298 /* ConnpassResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9371746420A85204008A0298 /* ConnpassResult.swift */; };
 		9371746C20A87611008A0298 /* sampleSearch.json in Resources */ = {isa = PBXBuildFile; fileRef = 9371746220A848F4008A0298 /* sampleSearch.json */; };
 		937D66BD20A5E7E90093B177 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937D66BC20A5E7E90093B177 /* AppDelegate.swift */; };
 		937D66BF20A5E7E90093B177 /* SessionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937D66BE20A5E7E90093B177 /* SessionListViewController.swift */; };
@@ -118,6 +119,7 @@
 /* Begin PBXFileReference section */
 		933494F720ADCAE0003C7C44 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		933494FA20AF0B1B003C7C44 /* CALayer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+.swift"; sourceTree = "<group>"; };
+		933494FC20AF9CBF003C7C44 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		933709BD20A6EDD30097F80A /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		933709C020A6F63F0097F80A /* CalendarHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHeaderView.swift; sourceTree = "<group>"; };
 		933709C220A6F6650097F80A /* CalendarContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarContainerView.swift; sourceTree = "<group>"; };
@@ -229,18 +231,6 @@
 			path = Calendar;
 			sourceTree = "<group>";
 		};
-		9371746820A853AB008A0298 /* ConnpassAPI */ = {
-			isa = PBXGroup;
-			children = (
-				9371746620A853A3008A0298 /* ConnpassDataStore.swift */,
-				9371745D20A84413008A0298 /* ConnpassAPI.swift */,
-				9371746420A85204008A0298 /* ConnpassResult.swift */,
-				9371746220A848F4008A0298 /* sampleSearch.json */,
-			);
-			name = ConnpassAPI;
-			path = AppRequest;
-			sourceTree = "<group>";
-		};
 		937D66B020A5E7E90093B177 = {
 			isa = PBXGroup;
 			children = (
@@ -272,10 +262,10 @@
 		937D66BB20A5E7E90093B177 /* StudySessionNavi */ = {
 			isa = PBXGroup;
 			children = (
-				9371746820A853AB008A0298 /* ConnpassAPI */,
 				937D66BC20A5E7E90093B177 /* AppDelegate.swift */,
 				937D66DC20A5EA110093B177 /* MenuTabBarController.swift */,
 				937D66BE20A5E7E90093B177 /* SessionListViewController.swift */,
+				933494FC20AF9CBF003C7C44 /* Session.swift */,
 				937D66C320A5E7EA0093B177 /* Assets.xcassets */,
 				937D66C520A5E7EA0093B177 /* LaunchScreen.storyboard */,
 				937D66C820A5E7EA0093B177 /* Info.plist */,
@@ -340,6 +330,10 @@
 		93867A7C20A841C1007979E5 /* AppRequest */ = {
 			isa = PBXGroup;
 			children = (
+				9371746620A853A3008A0298 /* ConnpassDataStore.swift */,
+				9371745D20A84413008A0298 /* ConnpassAPI.swift */,
+				9371746420A85204008A0298 /* ConnpassResult.swift */,
+				9371746220A848F4008A0298 /* sampleSearch.json */,
 				93867A7D20A841C1007979E5 /* AppRequest.h */,
 				93867A7E20A841C1007979E5 /* Info.plist */,
 			);
@@ -621,12 +615,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				933494FD20AF9CBF003C7C44 /* Session.swift in Sources */,
 				937D66BF20A5E7E90093B177 /* SessionListViewController.swift in Sources */,
-				9371746A20A87611008A0298 /* ConnpassAPI.swift in Sources */,
 				937D66BD20A5E7E90093B177 /* AppDelegate.swift in Sources */,
-				9371746920A87611008A0298 /* ConnpassDataStore.swift in Sources */,
+				933494FE20AFA47C003C7C44 /* SessionListCollectionViewCell.swift in Sources */,
 				937D66DD20A5EA110093B177 /* MenuTabBarController.swift in Sources */,
-				9371746B20A87611008A0298 /* ConnpassResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -648,7 +641,6 @@
 				937D670B20A5F7C60093B177 /* Extension.swift in Sources */,
 				933709BE20A6EDD30097F80A /* UIColor+.swift in Sources */,
 				937D670A20A5F7C20093B177 /* UIView+.swift in Sources */,
-				933494F920ADCDDD003C7C44 /* SessionListCollectionViewCell.swift in Sources */,
 				933709C120A6F63F0097F80A /* CalendarHeaderView.swift in Sources */,
 				933494F820ADCAE0003C7C44 /* PaddingLabel.swift in Sources */,
 				93867A1220A73492007979E5 /* CalendarCollectionViewCellViewModel.swift in Sources */,
@@ -669,6 +661,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				933494FF20AFA568003C7C44 /* ConnpassResult.swift in Sources */,
+				9334950020AFA568003C7C44 /* ConnpassAPI.swift in Sources */,
+				9334950120AFA568003C7C44 /* ConnpassDataStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1109,6 +1104,7 @@
 		93867A9420A841C1007979E5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YEF9KW58C5;
 				INFOPLIST_FILE = AppRequestTests/Info.plist;
@@ -1129,6 +1125,7 @@
 		93867A9520A841C1007979E5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YEF9KW58C5;
 				INFOPLIST_FILE = AppRequestTests/Info.plist;
